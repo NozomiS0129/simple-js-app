@@ -31,13 +31,13 @@ let pokemonList = [
     }
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-    let nameAndHeight = `${pokemonList[i].name}(height: ${pokemonList[i].height})`;
+pokemonList.forEach(function(pokemon) {
+    let nameAndHeight = `${pokemon.name}(height: ${pokemon.height})`;
 
-    if(pokemonList[i].height > 8){
+    if(pokemon.height > 8){
         document.write(nameAndHeight + ' - Wow, that\'s big!');
     }else{
         document.write(nameAndHeight);
     }
     document.write('</br>');
-}
+});
