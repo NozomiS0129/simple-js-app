@@ -1,3 +1,35 @@
 * {
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+}
+
+.pokemon-btn {
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid black;
+    background-color: #fff;
+    border-radius: 3px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: all 5ms ease;
+}
+
+.pokemon-btn:hover {
+    border: 2px solid #FF0060;
+    background-color: #F9F9F9;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    display: inline-block;
+}
