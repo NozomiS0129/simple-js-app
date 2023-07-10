@@ -22,14 +22,16 @@ body {
 
 .pokemon-btn:hover {
     border: 2px solid #FF0060;
-    background-color: #F9F9F9;
+    background-color: #DDE6ED;
     cursor: pointer;
 }
 
-li {
+ul {
     list-style: none;
+    padding-left: 0;
 }
 
 h1 {
     display: inline-block;
+    margin-top: 50px;
 }
