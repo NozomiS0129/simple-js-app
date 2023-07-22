@@ -5,9 +5,8 @@ let pokemonRepository = (function () {
 
     function add(pokemon) {
         pokemonList.push(pokemon);
-        }    
+    }    
     
-
     function getAll() {
         return pokemonList;
     }
@@ -83,11 +82,12 @@ let pokemonRepository = (function () {
         imageContainer.classList.add('image-container');
 
         let pokemonImage = document.createElement('img');
-        pokemonImage.setAttribute('src', img);
-        pokemonImage.src = 'item.imageUrl';
-        pokemonImage.setAttribute('widht', '100');
+        pokemonImage.src = console.log('item.imageUrl');
+        pokemonImage.setAttribute('width', '100');
         pokemonImage.setAttribute('height', '100');
         pokemonImage.setAttribute('alt', 'the image of pokemon');
+
+        console.log(pokemonImage);
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(pokemonName);
