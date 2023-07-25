@@ -48,6 +48,13 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
+        }).then(function () {
+            if(item.types.length <= 1){
+                item.typeName1 = (item.types[0].type.name);
+            }else{
+                item.typeName1 = (item.types[0].type.name);
+                item.typeName2 = (item.types[1].type.name);
+            }
         }).catch(function (e) {
             console.error(e);
         });
@@ -55,11 +62,11 @@ let pokemonRepository = (function () {
 
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function () {
-            showModal(item.name, 'Height: ' + item.height, item.imageUrl);
+            showModal(item.name, 'Height: ' + item.height, 'Type: ' + item.typeName1, item.typeName2, item.imageUrl);
         });
     }
 
-    function showModal(name, height, img) {
+    function showModal(name, height, types1, types2, img) {
         // Clear all existing modal content
         modalContainer.innerHTML = '';
 
@@ -78,6 +85,20 @@ let pokemonRepository = (function () {
         let pokemonHeight = document.createElement('p');
         pokemonHeight.innerText = height;
 
+        let typeContainer = document.createElement('div')
+        typeContainer.classList.add('type-container')
+
+        let pokemonTypes1 = document.createElement('p');
+        pokemonTypes1.classList.add('pokemon-type1');
+        pokemonTypes1.innerText = types1;
+
+        let pokemonTypes2 = document.createElement('p');
+        pokemonTypes2.classList.add('pokemon-type2');
+        pokemonTypes2.innerText = types2;
+        if(types2 === undefined){
+            pokemonTypes2.classList.add('is-hide');
+        };
+
         let imageContainer = document.createElement('div');
         imageContainer.classList.add('image-container');
 
@@ -90,8 +111,11 @@ let pokemonRepository = (function () {
         modal.appendChild(closeButtonElement);
         modal.appendChild(pokemonName);
         modal.appendChild(pokemonHeight);
-        modal.appendChild(imageContainer);
+        typeContainer.appendChild(pokemonTypes1);
+        typeContainer.appendChild(pokemonTypes2);
+        modal.appendChild(typeContainer);
         imageContainer.appendChild(pokemonImage);
+        modal.appendChild(imageContainer);
         modalContainer.appendChild(modal);
       
         modalContainer.classList.add('is-visible');
