@@ -3,10 +3,21 @@ body {
     font-family: 'Outfit', sans-serif;
 }
 
+/* nuvbar */
+
+.navbar {
+    z-index: 2;
+    overflow: hidden;
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
 /* buttons */
 
 .container {
     max-width: 900px;
+    padding-top: 110px;
 }
 
 .list-group {
@@ -29,6 +40,9 @@ body {
 }
 
 /* modal contents */
+.modal-content {
+    border: 2px solid #0096FF;
+}
 
 .pokemon-height {
     text-align: left;
