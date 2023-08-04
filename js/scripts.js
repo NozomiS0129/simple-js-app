@@ -53,7 +53,12 @@ let pokemonRepository = (function () {
         }).then(function (details) {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
+            item.weight = details.weight;
             item.types = details.types;
+        }).then(function() {
+            return item.height /= 10;
+        }).then(function() {
+            return item.weight /= 10;
         }).then(function () {
             if(item.types.length <= 1){
                 item.typeName1 = (item.types[0].type.name);
@@ -68,17 +73,19 @@ let pokemonRepository = (function () {
 
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function () {
-            console.log(item);
-            showModal(item.name, 'Height: ' + item.height + '0cm', 'Type: ' + item.typeName1, item.typeName2, item.imageUrl);
+            showModal(item.name, 'Height: ' + item.height + 'm','Weight: ' + item.weight + 'kg','Type(s): ' + item.typeName1, item.typeName2, item.imageUrl);
         });
     }
 
-    function showModal(name, height, types1, types2, img) {
+    function showModal(name, height, weight, types1, types2, img) {
         let modalTitle = document.querySelector('.modal-title');
         modalTitle.innerText = name;
 
         let pokemonHeight = document.querySelector('.pokemon-height');
         pokemonHeight.innerText = height;
+
+        let pokemonWeight = document.querySelector('.pokemon-weight');
+        pokemonWeight.innerText = weight;
 
         let typeContainer = document.querySelectorAll('.type-container')
 
