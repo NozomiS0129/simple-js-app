@@ -13,6 +13,10 @@ body {
     width: 100%;
 }
 
+.form-outline {
+    margin: 20px;
+}
+
 /* buttons */
 
 .container {
@@ -67,17 +71,18 @@ body {
 }
 
 /* media query */
-
-@media (max-width: 569px) {
-    .navbar {
-        justify-content: center;
+@media (max-width: 400px) {
+    .pokemon-logo img {
+        width: 100px;
     }
 }
+
 @media (min-width: 570px) {
     .list-group {
       display: grid;
       grid-template-columns: repeat(2, 50%);
     }
+
 }
   
 @media (min-width: 760px) {
@@ -85,6 +90,7 @@ body {
       display: grid;
       grid-template-columns: repeat(3, 33%);
     }
+
 }
   
 @media (min-width: 990px) {
